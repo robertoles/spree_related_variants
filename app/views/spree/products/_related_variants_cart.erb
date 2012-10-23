@@ -1,0 +1,18 @@
+<% unless @product.related_variants.count.zero? %>
+  <div id="product-add-ons">
+    <% @product.related_variants.each do |related| %>
+      <% variant = related.related_to %>
+      <div class="product-add-on add-to-cart-item">
+        <div class="options">
+          <%= check_box_tag "add_variants[#{variant.id}]" %>
+          <%= mini_image(variant, :itemprop => "image") %>
+        </div>
+        <span class="add-to-cart-item-title">
+          <div class="name"><%= variant.name + ' ' + variant_options(variant) %></div>
+          <div class="price"><%=  number_to_currency(variant.price) %></div>
+        </span>
+        <%= number_field_tag "variants[#{variant.id}]", 1, :in => 1..variant.on_hand %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

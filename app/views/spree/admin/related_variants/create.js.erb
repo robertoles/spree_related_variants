@@ -1,0 +1,4 @@
+$("#variants-table-wrapper").html('<%= escape_javascript(render "spree/admin/related_variants/related_variants_table", :product => @product ) %>');
+$('#add_variant_name').val('');
+$('#add_variant_id').val('');
+$('#add_quantity').val(1);
