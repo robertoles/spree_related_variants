@@ -9,7 +9,7 @@
         </div>
         <span class="add-to-cart-item-title">
           <div class="name"><%= variant.name + ' ' + variant_options(variant) %></div>
-          <div class="price"><%=  number_to_currency(variant.price) %></div>
+          <div class="price"><%=  money(variant.price) %></div>
         </span>
         <%= number_field_tag "variants[#{variant.id}]", 1, :in => 1..variant.on_hand %>
       </div>
