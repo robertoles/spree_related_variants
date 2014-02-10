@@ -1,6 +1,6 @@
-Spree::Core::Engine.routes.draw do
+Spree::Core::Engine.routes.append do
   namespace :admin do
-    resources :products do
+    resources :products, only: [] do
       resources :related_variants
     end
 
